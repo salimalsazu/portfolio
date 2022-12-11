@@ -1,27 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Projects = () => {
+const Projects = ({ project }) => {
+
+    const { project: projectname, livelink, clientlink, serverlink, featureone, featuretwo, featurethree, technologies } = project;
+
     return (
-        <div>
-            <div className="card  bg-base-100 shadow-xl hover:scale-125 hover:transition-all">
+        <div className='lg:mx-0 mx-5' >
+            <div className="card  bg-base-100 shadow-xl lg:hover:scale-125 lg:hover:transition-all ease-in-out hover:duration-500">
                 <div className="card-body">
-                    <h2 className="card-title">Projects Name:</h2>
+                    <h2 className="card-title">Project Name: {projectname}</h2>
                     <div className='flex gap-2 text-sm' >
-                        <Link>Live Site </Link> <span>||</span>
-                        <Link> Client Side </Link> <span>||</span>
-                        <Link> Server Side </Link>
+                        <a href={livelink} target="_blank" >Live Site </a> <span>||</span>
+                        <a href={clientlink} target="_blank"  > Client Side </a> <span>||</span>
+                        <a href={serverlink} target="_blank" > Server Side </a>
                     </div>
                     <div>
                         <h1 className='font-bold' >Features:</h1>
                         <div className='text-xs text-slate-400 flex flex-col gap-2 mt-3 ' >
-                            <li>It's an ad-classified marketplace people can buy and sell their products.</li>
-                            <li>Admin can see his Buyers and Sellers List.</li>
-                            <li>Buyer can book a product and pay later also he can add a product to his wishlist.</li>
+                            <li>{featureone}</li>
+                            <li>{featuretwo}</li>
+                            <li>{featurethree}</li>
                         </div>
                         <div className='mt-3' >
                             <h1 className='font-bold' >Technologies:</h1>
-                            <p className='text-xs text-slate-400 mt-3' >React.js, React Router Dom, React Hook, React Query, Axios, Firebase, Tailwind CSS, Daisy UI, Node.js, Express.js, MongoDB, JWT, Env, Vercel.</p>
+                            <p className='text-xs text-slate-400 mt-3' >{technologies}</p>
                         </div>
                     </div>
                 </div>
